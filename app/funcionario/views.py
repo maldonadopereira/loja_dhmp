@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+from .models import Setor, Funcionario
+from .serializer import SetorSerializer, FuncionarioSerializer
 
-# Create your views here.
+
+class FuncinarioViewSet(viewsets.ModelViewSet):
+    queryset = Funcionario.objects.all()
+    serializer_class = FuncionarioSerializer
+
+class SetorViewSet(viewsets.ModelViewSet):
+    queryset = Setor.objects.all()
+    serializer_class = SetorSerializer
